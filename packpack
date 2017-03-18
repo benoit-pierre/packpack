@@ -15,6 +15,9 @@ BUILDDIR=${BUILDDIR:-${SOURCEDIR}/build}
 # Docker repository to use
 DOCKER_REPO=${DOCKER_REPO:-packpack/packpack}
 
+# Path to cache directory
+CACHE_DIR="${CACHE_DIR:-${XDG_CACHE_HOME:-$HOME/.cache}/packpack}"
+
 # Docker architecture
 if [ -z "${ARCH}" ]; then
     # Use uname -m instead of HOSTTYPE
@@ -115,7 +118,6 @@ env | grep -E "TRAVIS|PRODUCT|VERSION|RELEASE|TARBALL_|CHANGELOG_|CCACHE_|PACKAG
 #
 # Setup cache directory
 #
-CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/packpack"
 mkdir -p "${CACHE_DIR}/ccache"
 
 #
